@@ -66,7 +66,7 @@ return new class extends Migration
             // branch:user key while open.
             $table->string('open_guard', 64)->nullable()->storedAs(
                 "(CASE WHEN `status` = 'open' THEN ".
-                SchemaSupport::concat(["CAST(`branch_id` AS CHAR)", "':'", "CAST(`user_id` AS CHAR)"]).
+                SchemaSupport::concat(['CAST(`branch_id` AS CHAR)', "':'", 'CAST(`user_id` AS CHAR)']).
                 ' ELSE NULL END)'
             );
             $table->unique('open_guard', 'uq_cds_open');

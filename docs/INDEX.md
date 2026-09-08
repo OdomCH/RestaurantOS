@@ -10,10 +10,13 @@ Laravel Sanctum authentication.
 
 **This documentation set is a design specification, not a description of running software.**
 
-The repository was inspected on 2026-09-05 and re-checked on 2026-09-08. Both applications are
-**unmodified framework scaffolds**: the Laravel backend has three default migrations, one model, no
-`routes/api.php` and **no Sanctum**; the React frontend is the default Vite starter. Every module,
-table, endpoint, permission and workflow described here is **designed, not built**.
+The repository was inspected on 2026-09-05 and re-checked on 2026-09-08. **The database layer is now
+built** (Day 2): 38 domain tables, 40 migrations, 34 models, 18 enums and 8 seeder classes under `backend/`,
+verified by `migrate:fresh --seed`. Everything above the database is still design only — there is no
+`routes/api.php`, **no Sanctum**, no controller, no service; the React frontend remains the default
+Vite starter. Every endpoint, permission check and workflow described here is **designed, not built**.
+
+Per-document status markers below say which is which.
 
 Full verified state: [01-project-overview.md](01-project-overview.md) §2.
 Build order: [31-development-roadmap.md](31-development-roadmap.md).
@@ -78,8 +81,20 @@ If you read nothing else:
 
 | # | Document | Purpose | Status |
 |---|---|---|---|
-| 05 | [Database Design](05-database-design.md) | 41 tables: columns, types, keys, indexes, constraints, nullability, soft deletes, migration order. **Authoritative for the schema.** | 🟡 |
-| 06 | [ERD](06-erd.md) | Nine Mermaid diagrams of the relationships in doc 05, plus the cross-module integrity map and deletion impact map. | 🟡 |
+| 05 | [Database Design](05-database-design.md) | 41 tables: columns, types, keys, indexes, constraints, nullability, soft deletes, migration order. **Authoritative for the schema.** | ✅ |
+| 06 | [ERD](06-erd.md) | Nine Mermaid diagrams of the relationships in doc 05, plus the cross-module integrity map and deletion impact map. | ✅ |
+
+#### Database supplements — `docs/database/`
+
+Written alongside the Day 2 implementation. They explain and verify the schema in
+[05](05-database-design.md); they do not restate its columns.
+
+| Document | Purpose | Status |
+|---|---|---|
+| [schema-overview.md](database/schema-overview.md) | Module map, the four decisions that shaped the schema, the primary-key argument, users-vs-employees, where the price lives, why the kitchen needs its own tables, and the implementation inventory. | ✅ |
+| [relationships.md](database/relationships.md) | All 88 foreign keys with cardinality and delete rules, the cascades that were rejected and why, polymorphic and self-referencing relations, Eloquent mapping. | ✅ |
+| [indexes.md](database/indexes.md) | Every index with the named query that justifies it, unique-constraint scoping (global vs per branch), the soft-delete uniqueness problem, and the indexes deliberately omitted. | ✅ |
+| [business-constraints.md](database/business-constraints.md) | 43 CHECK constraints, ledger immutability, 17 application-enforced rules, every state machine, what SQLite does not enforce, and the database QA checklist. | ✅ |
 
 ### API and rules
 

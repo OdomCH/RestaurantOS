@@ -7,8 +7,12 @@
 
 **Prerequisites:** [01](01-project-overview.md) §8–§9, [02](02-system-architecture.md) §6–§7.
 
-**Status:** 🟡 MVP — Planned. The repository currently contains only the three default Laravel
-migrations ([01](01-project-overview.md) §2). Nothing below exists yet.
+**Status:** ✅ **Implemented** (2026-09-08). Every table below exists as a Laravel migration under
+`backend/database/migrations/`, with 34 models, 18 enums and 8 seeder classes. Verified by
+`migrate:fresh --seed`. Three qualifications: Sanctum's `personal_access_tokens` arrives with the
+package on Day 3; partitioning (§12) remains proposed; and the CHECK constraints, triggers and
+FULLTEXT index are **MySQL-only** and therefore unverified until the suite runs against MySQL in CI.
+See [database/schema-overview.md](database/schema-overview.md) §8 for the implementation inventory.
 
 ---
 

@@ -7,7 +7,9 @@
 
 **Prerequisite:** [05-database-design.md](05-database-design.md).
 
-**Status:** 🟡 MVP — Planned.
+**Status:** ✅ **Implemented** (2026-09-08). Every entity and relationship diagrammed here exists in
+the database. Cross-references: [database/relationships.md](database/relationships.md) for delete
+rules, [database/indexes.md](database/indexes.md) for indexes.
 
 ---
 
