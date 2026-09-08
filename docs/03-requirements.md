@@ -355,7 +355,7 @@ a follow-up question.
 | CON-008 | PHP ≥ 8.3, as required by `backend/composer.json`. | Repository |
 | CON-009 | `.env.example` currently targets SQLite and must be changed to MySQL before MVP. | Repository |
 | CON-010 | Sanctum is not installed and must be added. | Repository |
-| CON-011 | The repository is not under version control and must be initialised. | Repository |
+| CON-011 | Git is initialised on `main`; the branching model in [28](28-git-workflow.md) is not yet in use. | Repository |
 | CON-012 | Tailwind is declared at the repository root, not in `Frontend/`. | Repository |
 
 ---

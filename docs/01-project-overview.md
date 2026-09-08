@@ -26,7 +26,7 @@ food-cost reporting, stock alerts and profit calculation possible, and it is the
 
 This documentation set was authored **before** the application was implemented. It is a **design
 specification**, not a description of running software. The repository was inspected on **2026-09-05**
-and contained the following:
+and re-checked on **2026-09-08**. It contained the following:
 
 | Path | Actual contents on 2026-09-05 |
 |---|---|
@@ -41,7 +41,7 @@ and contained the following:
 | `Frontend/` | Unmodified Vite scaffold. React `^19.2.8`, TypeScript `~6.0.2`, Vite `^8.2.2`, oxlint `^1.79.0`. |
 | `Frontend/src/` | `App.tsx` (default counter demo), `main.tsx`, CSS and image assets. |
 | Tailwind CSS | Declared in the **repository-root** `package.json` only (`tailwindcss ^4.3.3`, `@tailwindcss/vite ^4.3.3`). **Not** wired into `Frontend/`. |
-| Version control | **Not a git repository.** No `.git` directory exists at the repository root. |
+| Version control | Git repository on branch `main`, remote configured. *(Re-verified 2026-09-08: initialised since the first inspection, which found no `.git`.)* |
 
 **Consequence:** every module, table, endpoint, permission and workflow described in this documentation
 set is **designed, not implemented**, unless explicitly marked otherwise. Divergence between these
@@ -163,7 +163,7 @@ represented to an auditor as doing so.
 | Realtime (KDS) | Polling in MVP; WebSockets afterwards | 🟡 / 🔵 |
 | Test runner (backend) | PHPUnit 12.5 | ✅ Installed |
 | Formatter (backend) | Laravel Pint | ✅ Installed |
-| VCS | Git + GitHub | 🟡 **Repository not initialised** |
+| VCS | Git + GitHub | ✅ Initialised, branch `main` |
 
 Version pinning policy and upgrade rules are in [29-coding-standards.md](29-coding-standards.md).
 Environment variables are catalogued in [27-environment-configuration.md](27-environment-configuration.md).
